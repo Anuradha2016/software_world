@@ -1,0 +1,26 @@
+</p></p><h1 align="center">Locations</h1>
+ 
+<table border="2", align="center">
+  <tr><th>ID</th>
+    <th>Name</th>
+    <th>Address</th>
+        <th>Longitude</th>
+    <th>Latitude</th>
+    
+  </tr>
+<% @locat.each do |locats| %>
+  <tr>
+  	<td><%= locats.id %></td>
+    <td><%= locats.name %></td>
+    <td><%= locats.address %></td>
+    <td><%= locats.longitude %></td>
+    <td><%= locats.latitude %></td>
+    </tr>
+    <%end%>
+    </table>
+    
+    <p><%= link_to 'Back', :action => "index"%></p>
+
+    
+
+   

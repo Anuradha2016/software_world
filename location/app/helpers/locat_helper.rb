@@ -1,0 +1,2 @@
+module LocatHelper
+end

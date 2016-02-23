@@ -1,0 +1,19 @@
+<%= form_for :locat, :url => {:action=>'update', :id => @locat.id} do |f| %>
+<h1>Editing location</h1>
+
+ <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<%= link_to 'Show', :action => "show" %> |
+<%= link_to 'Back', :action => "index" %>
+<% end %>

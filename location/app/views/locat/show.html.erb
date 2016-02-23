@@ -1,0 +1,29 @@
+
+
+<p id="notice"><%= notice %></p>
+<%= form_for :locat, @locat,  do |f| %>
+  
+
+<p>
+  <b>Name:</b>
+  <%= @locat.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+    <%= @locat.address %><br />
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @locat.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @locat.latitude %>
+</p>
+
+<% end %>
+<%= link_to 'Edit', :action => 'edit', method: :edit %> |
+<%= link_to 'Back', :action => 'index' %>

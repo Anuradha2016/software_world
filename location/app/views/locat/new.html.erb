@@ -1,0 +1,33 @@
+<%= form_for :locat, :url => {:action=>'create', :id => @locat.id} do |f| %>
+ 
+<h1>New location</h1>
+
+
+  <% if @locat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@locat.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @locat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<p><%= link_to 'Back', :action => "index"%></p>
+

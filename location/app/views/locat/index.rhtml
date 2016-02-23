@@ -1,0 +1,57 @@
+
+
+<u style="color: blue"><h1 align="center">Listing locations</h1></u>
+
+<table align="center">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+        <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @locat.each do |locats| %>
+  <tr>
+    <td><%= locats.name %></td>
+    <td><%= locats.address %></td>
+    <td><%= locats.longitude %></td>
+    <td><%= locats.latitude %></td>
+    <td><%= link_to 'Show', :action =>'show', :id => locats.id %></td>
+    <td><%= link_to 'Edit', :action=>'edit' ,:id => locats.id %></td>
+    <td>
+    	
+  <%= link_to 'Destroy',:confirm => 'Are you sure?',  :action=>"destroy", :id => locats.id%>
+</td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />  <p><%= link_to 'EDIT' , :action => "new", :id=> @locat%></p>
+
+<p><%=link_to 'SHOW', :action=>"display",:id=> @locat %></p>
+<p><%= link_to 'New Location'%></p></div>
+<div align="center">
+<p><%= gmaps4rails(@json) %></p>
+</div>
+<div>
+<br />
+ <html>
+   <head>
+     <title>Location Details</title>
+   </head>
+   <body>
+     <h1>Search By Name </h1>
+   
+     <br>
+     <form action = "/locat/there" >
+       Please enter your name.
+       <br>
+       <input type="text" name="name">
+       <br>
+       <br>
+       <input type="submit"/>
+     </form>
+   </body>
+ </html><br />
+ </div>

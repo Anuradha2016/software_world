@@ -1,0 +1,33 @@
+
+<h1 align="center" style="color: cadetblue" >Your Searched Location Details</h1>
+
+<table border="2", align="center">
+<%= form_for :locat, @loc,  do |f| %>
+   <tr>
+    <th>Name</th>
+    <th>Address</th>
+        <th>Longitude</th>
+    <th>Latitude</th>
+    
+  </tr>
+<tr>
+
+  <td><%= @locat.name %></td>
+
+
+   <td> <%= @locat.address %></td>
+
+
+  
+  <td><%= @locat.longitude %></td>
+
+  <td><%= @locat.latitude %></td>
+
+</tr>
+<% end %>
+</table>
+<div align="center">
+<p><%= gmaps4rails(@json) %></p>
+</div>
+<p><%= link_to 'Back', :action => "index"%></p>
+
