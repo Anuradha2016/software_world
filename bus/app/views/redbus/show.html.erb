@@ -1,0 +1,23 @@
+<style>
+	
+.icon {
+    background:#FFFFFF url(http://icons.iconarchive.com/icons/gakuseisean/ivista-2/16/Start-Menu-Search-icon.png) no-repeat 4px 4px;
+    padding:4px 4px 4px 22px;
+    height:18px;
+}
+.icon1 {
+    background:#FFFFFF url("/../../../../../images/calendar.png.gif") repeat;
+    padding:4px 4px 4px 22px;
+    height:18px;
+}​
+</style>
+<p><input type="text" name="sample" class="icon1">
+	<input type="text" name="sample" class="icon">​
+</p>
+<p><%=label_tag 'From'%> 
+
+                     <%= text_field 'first', 'appointment_date',:class=>'date',:id=>'dob',:readonly=>'true'%>
+                    <a id="_dob_link" onclick="DatePicker.toggleDatePicker('dob')" class="demo_link"><%= image_tag("calendar.png.gif") %></a>
+                    <div id="_dob_calendar" class="date_picker" style="display:none"></div>
+ </p>            
+    

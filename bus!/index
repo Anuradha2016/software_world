@@ -1,0 +1,268 @@
+#index.html.erb
+
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+<script>
+
+$(function() {
+var availableTags = [
+"Abhayapuri",
+"Achabbal",
+"Achalpur",
+"Achhnera",
+"Adari",
+"Adalaj",
+"Adilabad",
+"Adityana",
+"Agartala",
+"Agra",
+"Ahmedabad",
+"Ajmer",
+"Aligarh",
+"Allahabad",
+"Almora",
+"Amravati",
+"Amritsar",
+"Asansol",
+"Baharampur",
+"Balaghat",
+"Balasore",
+"Ballia",
+"Balrampur",
+"Bareilly",
+"Bhagalpur",
+"Bharuch",
+"Bhopal* ",
+"Bhubaneswar* ",
+"Bihar Sharif",
+"Bikaner",
+"Bodh Gaya",
+"Bokaro Steel City",
+"Buxar",
+"Chandigarh* ",
+"Charkhari",
+"Chandrapur",
+"Chennai* ",
+"Chhapra",
+"Chittoor",
+"Coimbatore",
+"Cooch Behar",
+"Cuttack",
+"Dalsinghsarai",
+"Daltonganj",
+"Darbhanga",
+"Darjeeling",
+"Dehradun",
+"Etawah",
+"Faizabad",
+"Fatehpur Sikri",
+"Firozabad",
+"Gaya",
+"Gorakhpur",
+"Gurgaon",
+"Haridwar",
+"Howrah",
+"Indore",
+"Jammu",
+"Jamshedpur",
+"Kolkatta",
+"kerala",
+"L",
+"Perl",
+"PHP",
+"Python",
+"Ruby",
+"Scala",
+"Scheme"
+	];
+$( "#tags" ).autocomplete({
+		source: availableTags
+		});
+		$.ui.autocomplete.filter = function (array, term) {
+		var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
+		return $.grep(array, function (value) {
+		return matcher.test(value.label || value.value || value);
+		});
+		};
+		});
+$(function() {
+var availableTa = ["Abhayapuri",
+"Achabbal",
+"Achalpur",
+"Achhnera",
+"Adari",
+"Adalaj",
+"Adilabad",
+"Adityana",
+"Agartala",
+"Agra",
+"Ahmedabad",
+"Ajmer",
+"Aligarh",
+"Allahabad",
+"Almora",
+"Amravati",
+"Amritsar",
+"Asansol",
+"Baharampur",
+"Balaghat",
+"Balasore",
+"Ballia",
+"Balrampur",
+"Bareilly",
+"Bhagalpur",
+"Bharuch",
+"Bhopal* ",
+"Bhubaneswar* ",
+"Bihar Sharif",
+"Bikaner",
+"Bodh Gaya",
+"Bokaro Steel City",
+"Buxar",
+"Chandigarh* ",
+"Charkhari",
+"Chandrapur",
+"Chennai* ",
+"Chhapra",
+"Chittoor",
+"Coimbatore",
+"Cooch Behar",
+"Cuttack",
+"Dalsinghsarai",
+"Daltonganj",
+"Darbhanga",
+"Darjeeling",
+"Dehradun",
+"Etawah",
+"Fortran",
+"Groovy",
+"Haskell",
+"Java",
+"JavaScript",
+"Lisp",
+"Perl",
+"PHP",
+"Python",
+"Ruby",
+"Scala",
+"Scheme"
+	];
+	$("#ta").autocomplete({
+		source : availableTa
+	});
+	$.ui.autocomplete.filter = function(array, term) {
+		var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
+		return $.grep(array, function(value) {
+			return matcher.test(value.label || value.value || value);
+		});
+	};
+	});
+	/*  jQuery ready function. Specify a function to execute when the DOM is fully loaded.  */
+	$(document).ready(
+
+	/* This is the function that will get executed after the DOM is fully loaded */
+	function() {
+		$("#datepicker").datepicker({
+			changeMonth : true, //this option for allowing user to select month
+			changeYear : true //this option for allowing user to select from year range
+		});
+	});
+	$(document).ready(function() {
+		$("#datepicker1").datepicker({
+			changeMonth : true, //this option for allowing user to select month
+			changeYear : true //this option for allowing user to select from year range
+		});
+	}); 
+</script>
+<style>
+#header {
+	
+	border-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #5C5C5C;
+    background-color:#EDEDED;
+    color:white;
+    text-decoration:underline;
+    padding:5px;
+}
+	
+
+.icon {
+    background:#FFFFFF url("/../../../../../images/calendar.png.gif") no-repeat;
+    background-position:right;
+    padding:4px 4px 4px 22px;
+    height:18px;
+}
+.icon1 {
+    background:#FFFFFF url("/../../../../../images/calendar.png.gif") no-repeat;
+    background-position:right;
+    padding:4px 4px 4px 22px;
+    height:18px;
+}​
+
+</style>
+<body style="margin-bottom: 30px;margin-left: 20px;background-color:white;border: 0;">
+		<div id=header style="font-size: 12px">
+			<table>
+				<tr >
+					<td width="450px"></td>
+			<td width="10px"><%= link_to "Home", 'redbus' , {:style=>'color:black;'} %></td>
+			<td><%= link_to "Print/SMS Ticket", 'redbus' , {:style=>'color:black;'} %></td>
+			</tr>
+			</table>
+		</div>
+				
+				<table cellpadding="20px" >
+					<tr>
+						<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+						<td></td><td></td><td></td><td></td><td><%= image_tag("b_logo.png", :alt => "Logo") %></td><td></td>
+						<td><h3><%= link_to "Buses", 'redbus' , {:style=>'color:black;'} %></td>
+						<td><h3><%= link_to "Hotels", 'redbus',{:style=>'color:red;'} %></td><td></td><td></td><td></td><td><td style="font-size: 12px ">
+							<div class="securetxt" style="color:#454545">
+SAFE & SECURE
+<br>
+ONLINE PAYMENTS
+</div>
+						</td>
+						</h3>
+					</tr>
+				</table>
+				<hr size="1" style="color: #BEBEBE"/><table><tr><td><fieldset  style="border: 0;">
+				<h3 align="right">Online Bus Tickets Booking with Zero Booking Fees  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+				
+				<table cellspacing="40px" cellpadding="10px" style="margin-left: 420px;margin-right: 10px;margin-bottom: 10px; margin-top: 10px;alignment-baseline: central
+
+				<tr align="center">
+				<td>
+				<label for="tags">From: </label><br>
+				<input id="tags" placeholder="Enter a city"></td>
+				<td>
+				<label for="ta">To: </label><br />
+				<input id="ta" placeholder="Enter a city"></td>
+				</tr><tr>
+
+			<td>Date of Journey: <br /><input type="text" name="sample" class="icon1" id="datepicker1"  placeholder="dd-mmm-yyyy"></td>
+				<td> Date of Return (Optional): <br><input type="text" name="sample" class="icon" id="datepicker1"  placeholder="dd-mmm-yyyy"></td>
+				<td</tr>
+				<tr><td></td>
+					<td align="right"><%= button_to 'Search Buses', 'redbus' ,{:style=>'background-color:#e24648; color:white; width:150px;padding: 6px 20px;'} %></td>
+					
+					</td>
+				</tr>
+				<br />
+				<br>
+				</table>
+				<br><br />
+				</fieldset></td><td><fieldset style="border: 0;">
+					<%= image_tag("Singapore-Malaysia-rhs.png", :width => 300.10) %>
+				</fieldset></td></tr></table>
+				
+		
+
+		</body>
+
+</html>
