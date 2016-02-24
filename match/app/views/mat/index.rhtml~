@@ -1,0 +1,35 @@
+<head><body bgcolor="alicegreen"><u><i>
+<h1 align="center">REGISTRATION</h1></u></i></body>
+</head>
+<br>
+<p><%= Time.now.strftime("%d/%m/%Y") %></p>
+<br><font color="WHITE"><marquee direction="left" style="background:yellow"> <%= link_to 'EDIT' , :action => "new"%></marquee></font>
+<div>
+ <%if flash[:alert] %>
+ <p id="notice"><%= flash[:alert]%>
+ <%end%>
+<%= form_for :@mat  do |f| %>
+<fieldset>
+   	<legend>Please Log In</legend>
+	<div>
+	<b><%= f.label :Email%></b>&nbsp;&nbsp;
+	<%= f.email_field :email, :size=>10,:max=>10%><br><br>
+	<b><%= f.label :Password%></b>&nbsp;
+	<%= f.password_field :password, :size=>10%> <%= hidden_field_tag(:password, "7") %> <br>
+ 	</div>
+	<div>
+	<%=f.submit "login"%>
+	</div>
+</fieldset>
+<%end%>
+</div>
+<% @page_title = "UserAuth | Login" -%>
+<div class= "Sign_Form">
+<h1>Log in</h1>
+<%= form_tag(:action => 'login_attempt') do %>
+<p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p>
+<p>Password:</br> <%= password_field_tag :login_password %></p>
+<%= submit_tag("Log In") %>
+<% end %>
+</div>
+

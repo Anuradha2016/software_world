@@ -1,0 +1,247 @@
+<head><body bgcolor="alicegreen"><u><i>
+<h1 align="center">REGISTRATION</h1></u></i></body>
+<div id="stage" style="background: rgba(0,0,0,0.5);">
+ <p id="spinner" style="background: rgba(0,0,0,0.5); text-align: center; color: #fff;">Stop, I'm getting upset!</p>
+ </div>
+</head>
+<br>
+<p><%= Time.now.strftime("%d/%m/%Y") %></p>
+<br><font color="WHITE"><marquee direction="left" style="background:yellow"  onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);"> <%= link_to 'EDIT' , :action => "new"%></marquee></font>
+<div>
+ <%if flash[:alert] %>
+ <p id="notice"><%= flash[:alert]%>
+ <%end%>
+<%= form_for :@mat  do |f| %>
+<fieldset>
+   	<legend>Please Log In</legend>
+	<div>
+	<b><%= f.label :Email%></b>&nbsp;&nbsp;
+	<%= f.email_field :email, :size=>10,:max=>10%><br><br>
+	<b><%= f.label :Password%></b>&nbsp;
+	<%= f.password_field :password, :size=>10%> <%= hidden_field_tag(:password, "7") %> <br>
+ 	</div>
+	<div>
+	<%=f.submit "login"%>
+	</div>
+</fieldset>
+<%end%>
+</div>
+
+<script type="text/javascript"> 
+var i = 0; 
+var image = new Array();   
+// LIST OF IMAGES 
+
+image[0]= "/../../images/aaa.jpg"; 
+
+image[1]= "/../../images/7567_594602787275647_1016746510_n.jpg";
+
+image[2] = "/../../images/good_morning_nature.jpg";   
+var k = image.length-1;    
+var caption = new Array(); 
+
+// LIST OF CAPTIONS 
+caption[0] = "Caption for the first image"; 
+caption[1] = "Caption for the second image"; 
+caption[2] = "Caption for the third image"; 
+
+function next(){
+var el = document.getElementById("mydiv"); 
+el.innerHTML=caption[i]; 
+var img= document.getElementById("slide"); 
+img.src= image[i]; 
+if(i < k ) { i++;}  
+else  { i = 0; }
+}
+
+function prev(){
+var el = document.getElementById("mydiv"); 
+el.innerHTML=caption[i]; 
+var img= document.getElementById("slide"); 
+img.src= image[i]; 
+if(i >0 ) { i--;}  
+else  { i = k; }
+}
+
+function swapImage(){ 
+var el = document.getElementById("mydiv"); 
+el.innerHTML=caption[i]; 
+var img= document.getElementById("slide"); 
+img.src= image[i]; 
+if(i < k ) { i++;}  
+else  { i = 0; } 
+} 
+function addLoadEvent(func) { 
+var oldonload = window.onload; 
+if (typeof window.onload != 'function') { 
+window.onload = func; 
+} else  { 
+window.onload = function() { 
+if (oldonload) { 
+oldonload(); 
+} 
+func(); 
+} 
+} 
+} 
+addLoadEvent(function() { 
+swapImage(); 
+});  
+</script> 
+<table style="border:none;background-color:transparent;"> 
+<tr> 
+<td>
+<img onclick="prev()" title="Previous" alt ="<" height="50" width="100"src="prev.jpg"/> 
+</td>
+<td> 
+<img name="slide" id="slide" alt ="my images" height="285" width="950" src="/../../images/aaa.jpg"/> 
+</td> 
+<td>
+<img onclick="next()" title="Next" alt =">" height=" 50" width="50" src="next.jpg"/> 
+</td>
+</tr> 
+<tr> 
+<td>
+</td>
+<td align="center"style="font:small-caps bold 15px georgia; color:blue;"> 
+<div id ="mydiv"></div>
+</td> 
+<td>
+</td>
+</tr>  
+</table>
+<style type="text/css">
+ @-webkit-keyframes spincube { from,to { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); } 16% { -webkit-transform: rotateY(-90deg); } 33% { -webkit-transform: rotateY(-90deg) rotateZ(90deg); } 50% { -webkit-transform: rotateY(-180deg) rotateZ(90deg); } 66% { -webkit-transform: rotateY(90deg) rotateX(90deg); } 83% { -webkit-transform: rotateX(90deg); } } #spinner { -webkit-animation-name: spincube; -webkit-animation-timing-function: ease-in-out; -webkit-animation-iteration-count: infinite; -webkit-animation-duration: 12s; -webkit-transform-style: preserve-3d; -webkit-transform-origin: 60px 60px 0; } </style>
+
+<div class="stage" style="width: 120px; height: 120px;"> <div class="cubespinner"> <div class="face1">1</div> <div class="face2">2</div> <div class="face3">3</div> <div class="face4">4</div> <div class="face5">5</div> <div class="face6"><img src="/images/homer.jpg"></div> </div> </div>
+<style type="text/css"> #spinner div { position: absolute; width: 120px; height: 120px; border: 1px solid #ccc; background: rgba(255,255,255,0.8); box-shadow: inset 0 0 20px rgba(0,0,0,0.2); text-align: center; line-height: 120px; font-size: 100px; } #spinner .face1 { -webkit-transform: translateZ(60px); } #spinner .face2 { -webkit-transform: rotateY(90deg) translateZ(60px); } #spinner .face3 { -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px); } #spinner .face4 { -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px); } #spinner .face5 { -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); } #spinner .face6 { -webkit-transform: rotateX(-90deg) translateZ(60px); } </style>
+<style type="text/css">
+
+  @-webkit-keyframes spincube {
+    from,to  { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    16%      { -webkit-transform: rotateY(-90deg);                           }
+    33%      { -webkit-transform: rotateY(-90deg) rotateZ(90deg);            }
+    50%      { -webkit-transform: rotateY(-180deg) rotateZ(90deg);           }
+    66%      { -webkit-transform: rotateY(-270deg) rotateX(90deg);           }
+    83%      { -webkit-transform: rotateX(90deg);                            }
+  }
+
+  @keyframes spincube {
+    from,to {
+      -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    16% {
+      -moz-transform: rotateY(-90deg);
+      -ms-transform: rotateY(-90deg);
+      transform: rotateY(-90deg);
+    }
+    33% {
+      -moz-transform: rotateY(-90deg) rotateZ(90deg);
+      -ms-transform: rotateY(-90deg) rotateZ(90deg);
+      transform: rotateY(-90deg) rotateZ(90deg);
+    }
+    50% {
+      -moz-transform: rotateY(-180deg) rotateZ(90deg);
+      -ms-transform: rotateY(-180deg) rotateZ(90deg);
+      transform: rotateY(-180deg) rotateZ(90deg);
+    }
+    66% {
+      -moz-transform: rotateY(-270deg) rotateX(90deg);
+      -ms-transform: rotateY(-270deg) rotateX(90deg);
+      transform: rotateY(-270deg) rotateX(90deg);
+    }
+    3% {
+      -moz-transform: rotateX(90deg);
+      -ms-transform: rotateX(90deg);
+      transform: rotateX(90deg);
+    }
+  }
+
+  .cubespinner {
+    -webkit-animation-name: spincube;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 12s;
+
+    animation-name: spincube;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform-origin: 60px 60px 0;
+    -moz-transform-origin: 60px 60px 0;
+    -ms-transform-origin: 60px 60px 0;
+    transform-origin: 60px 60px 0;
+  }
+
+  .cubespinner div {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.8);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    line-height: 120px;
+    text-align: center;
+    font-size: 100px;
+  }
+
+  .cubespinner .face1 {
+    -webkit-transform: translateZ(60px);
+    -moz-transform: translateZ(60px);
+    -ms-transform: translateZ(60px);
+    transform: translateZ(60px);
+  }
+  .cubespinner .face2 {
+    -webkit-transform: rotateY(90deg) translateZ(60px);
+    -moz-transform: rotateY(90deg) translateZ(60px);
+    -ms-transform: rotateY(90deg) translateZ(60px);
+    transform: rotateY(90deg) translateZ(60px);
+  }
+  .cubespinner .face3 {
+    -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    -moz-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+  }
+  .cubespinner .face4 {
+    -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+  }
+  .cubespinner .face5 {
+    -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    -moz-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+  }
+  .cubespinner .face6 {
+    -webkit-transform: rotateX(-90deg) translateZ(60px);
+    -moz-transform: rotateX(-90deg) translateZ(60px);
+    -ms-transform: rotateX(-90deg) translateZ(60px);
+    transform: rotateX(-90deg) translateZ(60px);
+  }
+
+</style>
+
+<div class="stage" style="width: 120px; height: 120px;">
+<div class="cubespinner">
+<div class="face1">1</div>
+<div class="face2">2</div>
+<div class="face3">3</div>
+<div class="face4">4</div>
+<div class="face5">5</div>
+<div class="face6">6</div>
+</div>
+</div>
+<style type="text/css"> /* WebKit and Opera browsers */ @-webkit-keyframes spinner { from { -webkit-transform: rotateY(0deg); } to { -webkit-transform: rotateY(-360deg); } } /* all other browsers */ @keyframes spinner { from { -moz-transform: rotateY(0deg); -ms-transform: rotateY(0deg); transform: rotateY(0deg); } to { -moz-transform: rotateY(-360deg); -ms-transform: rotateY(-360deg); transform: rotateY(-360deg); } } </style>
+<style type="text/css"> #stage { margin: 1em auto; -webkit-perspective: 1200px; -moz-perspective: 1200px; -ms-perspective: 1200px; perspective: 1200px; } </style>
+<style type="text/css"> #spinner { -webkit-animation-name: spinner; -webkit-animation-timing-function: linear; -webkit-animation-iteration-count: infinite; -webkit-animation-duration: 6s; animation-name: spinner; animation-timing-function: linear; animation-iteration-count: infinite; animation-duration: 6s; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d; -ms-transform-style: preserve-3d; transform-style: preserve-3d; } #spinner:hover { -webkit-animation-play-state: paused; animation-play-state: paused; } </style>

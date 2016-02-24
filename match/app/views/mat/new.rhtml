@@ -1,0 +1,57 @@
+<fieldset style="margin: 40px;border:double;background-color:yellow">
+ <head>
+<h1 align="center" style="alignment-adjust:central;background-color: cadetblue; ">REGISTATION</h1>
+</head>
+<%= form_for :mat, @mat, :url => {:action=>'create'} do |f| %>
+<div style="vertical-align:middle;margin:100px; width:50;">
+<table >
+<tr >
+	<%= f.label :First_name %>
+	<%= f.text_field :first , :size => 10%>
+<tr>    <%= f.label :Last_name%>
+	<%= f.text_field:last, :size=>10,:max=>10 %>
+</tr></table><br><br>
+<table>
+<tr>
+		<fieldset>
+
+			<legend>
+				Gender
+			</legend><br>
+			<%= f.radio_button :gender, "female" %>Female
+
+			<%= f.radio_button :gender, "male", :checked => true %>Male
+
+		</fieldset>
+	</tr></table>
+	<table>
+	<tr>
+		<br>
+		<fieldset >
+		<legend>Subject Interest</legend><br>
+		<%= f.label :Math%><%= f.check_box :subject, {:multiple => "true"}, "Math", nil %>
+		<%= f.label :Science%><%= f.check_box :subject, {:multiple => "true"}, "Science", nil %>
+		<%= f.label :Social%><%= f.check_box :subject, {:multiple => "true"}, "Social", nil %>
+		<%= f.label :English%><%= f.check_box :subject, {:multiple => "true"}, "English", nil %>
+		</fieldset>
+	</tr>
+</table><br>
+<table>
+	<label for = "Nationality">Nationality </label>
+	<tr><%= f.select(:nationality,[['Indian'], ['American'],['japaneese'],['chineese']]) %></tr><br><br>
+	<%= f.label :Email%>
+	<%= f.email_field :email, :size=>10,:max=>10%><br><br>
+	<%= f.label :Password%>
+	<%= f.password_field :password, :size=>10%> <%= hidden_field_tag(:password, "7") %> <br>
+	<br>
+	<%= f.label :Comment %><br><br>
+	<p>
+	<%= f.text_area :comment, :size=>"24x 10" %>
+
+</table>
+<%= f.submit %>
+<% end %>
+
+<p><%= link_to 'Back', :action => "index"%></p>
+<p><%= link_to 'show', :action=> "show"%></div>
+	</fieldset>

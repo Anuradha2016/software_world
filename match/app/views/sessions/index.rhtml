@@ -1,0 +1,25 @@
+<table align="center" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey" cellpadding="20px">
+<tr>
+<th>  name:-</th>
+<th > username:-</th>
+<th> password:-</th><br/> 
+<th>  login:-</th>
+<th> email:-</th>
+<th> city:-</th>
+ </tr>
+<% for l in @login %>
+<td> <%=  l.name %> </td>
+	<td><%= l.username %> </td>
+ <td> <%= l.password %>
+ 	 </td>
+  <td> <%= l.login %> 
+  	</td>
+  <td><%= l.email %>
+  </td>
+  <td><%= l.city%>
+  	
+  <td> <%= link_to 'Delete', {:controller => 'student', :action => 'destroy', :id =>l.id} ,:confirm =>'are you sure?',:method => :post %></td>
+ </br></br>
+</table>
+<% end %>

@@ -1,0 +1,32 @@
+<head>
+<h1 align="center">Registation table</h1>
+</head>
+<table align="right" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey">
+
+</table>
+ <table cellpadding="10" align="center" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey">
+ 	<th style="color:blue">Sl No</th>
+    	<th style="color:blue">first     </th>
+    	<th style="color:blue"> last</th>
+    	<th style="color:blue"> gender</th>
+    	<th style="color:blue"> subject</th>
+    	<th style="color:blue"> Nationality</th>
+    	<th style="color:blue"> Email</th>
+    	<th style="color:blue"> Password</th>
+    	<th style="color:blue"> Comment</th>
+    	<% count = 0%>
+       <tr> 
+     	<td><%= count += 1%></td>
+     	<td><%= @mat.first %></td>
+        <td><%= @mat.last %></td>
+          <td><%= @mat.gender %></td>
+            <td><%= @mat.subject %></td>
+              <td><%= @mat.nationality %></td>
+                <td><%= @mat.email %></td>
+                  <td><%= @mat.password %></td>
+                    <td><%= @mat.comment %></td>
+      </tr>
+     </table>
+      
