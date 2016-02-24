@@ -1,0 +1,178 @@
+
+<!-- <html>
+	<head>
+		<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
+		<title>Your first Web project</title>
+	</head>
+
+
+
+<script type="text/javascript">
+    function changePage(pageNum) {
+        if (pageNum == 1)
+         { var pageURL = 'new.rhtml'; }
+        if (pageNum == 2)
+         { var pageURL = 'show.html'; }
+        window.location.href = pageURL;
+    }
+</script>
+
+<h1>Select Page:</h1>
+<input type="radio" onclick="changePage(1);" value="Page 1">NEW<br>
+<input type="radio" onclick="changePage(2);" value="Page 2">Review -->
+
+<style>
+.reviewcolor {
+	background-color: #d0e4fe;
+}
+.color{
+	 background-color:  #6495ed;
+}
+.bg{
+	 background-color: #FF3385;
+}
+</style>
+<%= form_for :mat, @mat, :url => {:action=>'create'} do |f| %>
+<div class="bg">
+<table width="50%">
+	    <tr><div style="margin: center; text-align: center;">
+
+        <input type="text" id="txtblinkingtext" value="SELECTION"
+
+            readonly="readonly" style="height: 40px; width: 400px; background-color:blue; font-size:300%;
+
+            color: White; border: 10px none; text-align: center; ">
+
+    </div></tr>
+
+ <marquee  onmouseover="this.setAttribute('scrollamount', 0, 0);" onmouseout="this.setAttribute('scrollamount', 6, 0);"><h2 align="center" ><u> Selection</u></h2></marquee>
+			<br>
+
+			<td><h4 align="center"><%= f.radio_button :gender, "male" %>New</h4></td>
+
+			<td><h4 align="center"><%= f.radio_button :gender, "female" %>Review</h4></td>
+		
+	</tr>
+	</table>
+</div>
+<div id="aaa"  class="color">
+	<u><h1 align="center">CREATE TABLE</h1></u>
+	<fieldset style="margin: 40px;border:double">
+		<table >
+			<tr >
+				<td><b><%= f.label :First_name %></b></td>
+				<td> <%= f.text_field :first , :size => 10%></td>
+			<tr>
+				<td> <b><%= f.label :Last_name%></b></td>
+				<td><%= f.text_field:last, :size=>10,:max=>10 %></td>
+			</tr>
+			<tr>
+				<td> <b><%= f.label :Comment %></b>
+				<br>
+				<br>
+				</td>
+
+				<td><%= f.text_area :comment, :size=>"24x 10" %></td>
+
+			</tr>
+		</table>
+		<br>
+		<br>
+		<%= f.submit value="save"%>
+	</fieldset>
+</div>
+<div id="bbb"  class="reviewcolor">
+	<u><h1 align="center">REVIEW TABLE</h1></u>
+	<table cellpadding="10" align="center" bordercolor="blue" border="1"
+	style="background-color:lightgrey">
+		<th style="color:blue">Sl No</th>
+		<th style="color:blue">First </th>
+		<th style="color:blue"> Last</th>
+		<th style="color:blue"> Comment</th>
+
+		<% count = 0%>
+
+		<%@review.each do |l|%>
+		<tr>
+			<td><%= count += 1%></td>
+			<td><%= l.first %></td>
+			<td><%= l.last%></td>
+			<td><%= l.comment %></td>
+		</tr>
+		<% end %>
+
+	</table>
+
+</div>
+
+<% end %>
+
+<script>
+ setInterval(blinktext, 500);
+
+        var txt = "";
+
+        var count = 0;
+
+        function blinktext() {
+
+            var cntrl = document.getElementById("txtblinkingtext");
+
+            if (count == 0)
+
+                txt = cntrl.value;
+
+            if (count % 2 == 0)
+
+                cntrl.value = "";
+
+            else
+
+                cntrl.value = txt;
+
+            count++;
+
+        }
+$('mat_gender_male').observe('click',function(e){
+ $("aaa").show();
+ $("bbb").hide();
+Event.stop(e);
+});
+$('mat_gender_female').observe('click',function(e){
+ $("aaa").hide();
+ $("bbb").show();
+Event.stop(e);
+});
+
+</script>
+<!-- <table>
+<tr>
+		<fieldset>
+<head>
+<script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
+    }
+</script>
+ 
+<script>
+if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+    jQuery(function($){ //on document.ready
+        $('#birthday').datepicker();
+    })
+}
+</script>
+</head>
+ 
+<body>
+<form>
+<b>Date of birth:</b>
+<input type="date" id="birthday" name="birthday" size="20" />
+<input type="button" value="Submit" name="B1"></p>
+</form>
+</body>
+</fieldset> -->

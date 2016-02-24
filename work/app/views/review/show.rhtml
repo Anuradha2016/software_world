@@ -1,0 +1,27 @@
+<style>
+	.reviewcolor {
+	background-color: #d0e4fe;
+}
+</style>
+<div id="bbb"  class="reviewcolor">
+	<h1 align="center">REVIEW TABLE</h1>
+	<table cellpadding="10" align="center" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey">
+ 	<th style="color:blue">Sl No</th>
+    	<th style="color:blue">First     </th>
+    	<th style="color:blue"> Last</th>
+    	<th style="color:blue"> Comment</th>
+    	<tr>
+    			<% count = 0%>
+    	
+    	<td><%= count += 1%></td>
+    		<td><%= @mat.first%></td>
+    		<td><%= @mat.last%></td>
+    		<td><%= @mat.comment%></td>
+    	</tr>
+    	
+     </table>
+      
+
+	</div>	
+

@@ -1,0 +1,33 @@
+<style>
+	.color{
+	 background-color:  #6495ed;
+}
+</style>
+<%= form_for :mat, @mat, :url => {:action=>'create'} do |f| %>
+<div id="aaa"  class="color">
+	<h1 align="center">CREATE TABLE</h1>
+	<fieldset style="margin: 40px;border:double">
+		<table >
+			<tr >
+				<td><%= f.label :First_name %></td>
+				<td> <%= f.text_field :first , :size => 10%></td>
+			<tr>
+				<td> <%= f.label :Last_name%></td>
+				<td><%= f.text_field:last, :size=>10,:max=>10 %></td>
+			</tr>
+			<tr>
+				<td> <%= f.label :Comment %>
+				<br>
+				<br>
+				</td>
+
+				<td><%= f.text_area :comment, :size=>"24x 10" %></td>
+
+			</tr>
+		</table>
+		<br>
+		<br>
+		<%= f.submit value="save"%>
+	</fieldset>
+</div>
+<%end%>
