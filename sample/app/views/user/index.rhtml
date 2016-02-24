@@ -1,0 +1,132 @@
+<p>Country <br />
+
+<% @countries = Country.find(:all) %>
+
+
+<select name='country_id' id='country_id'>
+
+<option value=>Select </option>
+<% @countries.each do |country| %>
+
+<option value=<%= country.id %>>
+
+<%= country.country %>
+
+</option>
+
+<% end %>
+
+</select>
+
+
+</p>
+
+<p>State
+
+<div id='state_id_container'>
+<% @states = State.find(:all) %>
+<select name='state_id' id='state_id'>
+
+<option value=''>state</option>
+
+<% @states.each do |state| %>
+
+<option value=<%= state.id %>>
+
+<%= state.state %>
+
+</option>
+
+<% end %>
+<div id = 'state_id'>
+	</div>
+
+</select>
+
+</div>
+
+
+</p>
+
+<p>City
+
+<div id='city_id_container'>
+<% @cities = City.find(:all) %>
+<select name='city_id' id='city_id'>
+
+<option value=''>city</option>
+
+<% @cities.each do |city| %>
+
+<option value= <%= city.id %> >
+
+<%= city.city %>
+
+</option>
+
+<% end %>
+<div id = 'city_id'>
+	</div>
+
+</select>
+
+</div>
+
+
+</p>
+
+
+
+
+<script>
+	$('country_id').observe('change',function(e)
+	{
+		var pars = "country=" + $F('country_id')
+		
+		var myAjax = new Ajax.Updater('state_id', '/user/load_states', 
+                    	{
+                    		method: 'get',
+                    		parameters: pars
+                    	})
+	});
+	$('state_id').observe('change',function(ez)
+	{
+		var pars = "state=" + $F('state_id')
+		// alert(pars);
+		var myAjax = new Ajax.Updater('city_id', '/user/load_cities', 
+                    	{
+                    		method: 'get',
+                    		parameters: pars
+                    	})
+	});
+	$('city_id').observe('change',function(ew)
+	{
+	var pars = "city=" + city_id ;
+		var myAjax = new Ajax.Request('/user/load_states', 
+                    	{
+			method : 'get',
+			parameters : pars,
+			}
+	});
+</script>
+<!-- <label>
+Sex: <input name="sex" id="sex" list="sexes">
+</label>
+<label>
+or select from the list:
+<select name="sex" onchange="document.getElementById('sex').value=this.value;">
+<option value="">
+<option>Female
+<option>Male
+</select>
+</label> -->
+
+
+<input type="text" name="txtprice" id="txtprice" onClick="checkPrice()">
+<script>
+var select = document.getElementById('city_id');
+var input = document.getElementById('txtprice');
+select.onchange = function() {
+    input.value = select.value;
+}
+</script>

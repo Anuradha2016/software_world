@@ -1,0 +1,41 @@
+ <HTML>
+
+<HEAD>
+
+<%= javascript_include_tag 'prototype' %>
+
+</HEAD>
+
+<BODY>
+
+<p>    <% @html = '<select id=’state_id’ name=’state_id’>' %>
+
+<%= @html += '<option value=''>No state</option>' %>
+
+<% @state.each do |@state| %>
+
+<%= @html = '<option value=’#{@state.id}’>#{@state.state}</option>' %>
+
+<% end %>
+
+<%= @html = “</select>” %>
+
+</p>
+
+<p>City
+
+<div id='city_id_container'>
+
+<select name='city_id' disabled='disabled'>
+
+<option value=''>No City</option>
+
+</select>
+
+</div>
+
+<%= observe_field('state_id', :frequency => 0.25, :update => 'city_id_container', :url => { :action => :add_link_city }, :with => '‘state_id=’+value') %></p>
+
+</BODY>
+
+</HTML>

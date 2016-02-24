@@ -1,0 +1,65 @@
+
+<table>
+
+
+	
+	
+<%= collection_select(:post,:country_id,Country.all,:id,:country_name,:prompt=>true)%>
+
+
+
+<td><h1>STATE</h2></td>
+	
+<td>
+
+
+<%= collection_select(:post,:state_id,State.all,:id,:state_name,:prompt=>true)%>
+</td>
+<tr>
+<td><h2>CITY</h2></td>
+<td>
+	<% @cities.each do |city|%>
+<%end%>
+<%= collection_select(:post,:city_id,City.all,:id,:city_name,:prompt=>true)%>
+</td>
+</tr>
+
+<div id = 'state_id'>
+	</div>
+<script>
+
+	$('post_country_id').observe('change',function(e)
+	{
+		var pars = "country=" + $F('post_country_id')
+		alert(pars);
+		var myAjax = new Ajax.Updater('state_id', '/welcome/load_state', 
+ 	{
+                    		method: 'get',
+                    		parameters: pars
+                    		
+                    	})
+	});
+</script>
+<div id = 'city_id'>
+	</div>
+<script>
+	$('post_state_id').observe('change',function(ei)
+	{
+		var pars = "state=" + $F('post_state_id')
+		alert(pars);
+		var myAjax = new Ajax.Updater('city_id', '/welcome/load_city', 
+ 	{
+                    		method: 'get',
+                    		parameters: pars
+                    	})
+	});
+</script>
+<tr>
+<td>
+<input name= "operation" type= "submit" value= "save" class= "buttons">
+</td>
+</tr>
+
+
+
+</table>

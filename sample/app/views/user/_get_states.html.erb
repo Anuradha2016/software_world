@@ -1,0 +1,6 @@
+
+<% if @states.present? %>
+<%= select_tag :state, options_from_collection_for_select(@states, "id", "name"), prompt: "Please Select State" %>
+<% else %>
+<%= select_tag 'Please Select State', {}, { disabled: true } %>
+<% end %>
