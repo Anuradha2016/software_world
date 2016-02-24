@@ -1,0 +1,59 @@
+<fieldset align="center" style="margin-left: 50px;margin-right: 50px;background-color: aliceblue">
+	<u><h1 align="center" style="background-color: cadetblue">Sign Up</h1></u>
+<%= form_for :user,@user,:url => {:action=>'create', :id => @user.id}  do |f| %>
+
+	<div>
+
+		<%= f.label :First_name %>
+		<%= f.text_field :first , :size => 10%>
+		<%= f.label :Last_name%>
+		<%= f.text_field:last, :size=>10,:max=>10 %>
+	</div>
+	<br>
+	<br>
+	<div>
+
+		<legend>
+			Gender
+		</legend>
+		<br>
+		<%= f.radio_button :gender, "female" %>Female
+
+		<%= f.radio_button :gender, "male", :checked => true %>Male
+
+	</div><br><br>
+	<div>
+
+		<label for = "Nationality">Nationality </label>&nbsp;&nbsp;&nbsp;
+		<%= f.select(:nationality,[['Indian'], ['American'],['japaneese'],['chineese']]) %>
+	</div>
+	<br>
+	<br>
+	<div>
+
+		<%= f.label :Email%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= f.email_field :email, :size=>10,:max=>10%>
+	</div>
+	<br>
+	<br>
+	<div>
+
+		<%= f.label :Password%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<%= f.password_field :password, :size=>10%> <%= hidden_field_tag(:password, "7") %>
+	</div>
+	<br>
+	<br>
+	<div >
+
+		<%= f.label :Confirm_password%>
+
+		<%= f.text_field :salt, :size=>"24x 10" %>
+
+	</div>
+	<br><br>
+	<div>
+		<%= f.submit %>
+	</div>
+	<% end %>
+	</fieldset>
+

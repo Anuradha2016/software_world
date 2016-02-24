@@ -1,0 +1,215 @@
+<style >
+#header {
+    background-color:black;
+    color:white;
+   
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:600px;
+    width:300px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+	background-color:cyan;
+	 height:600px;
+   	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+
+
+.fade
+{
+        opacity:0.5;
+}
+.fade:hover
+{
+        opacity:1;
+}
+
+
+.color:hover
+{
+        background:#53a7ea;
+}
+
+
+
+</style>
+<div id=header><a href="home" >Back</a>
+<h1 align="center">Art & Photography</h1>
+</div>
+<div id =nav>
+<h3 style="background-color: grey">Refine your Search</h3>
+<h5 style="background-color: lightgrey">Price</h5>
+<a href="">Below Rs.100<br>
+	<a href="">Rs.100- Rs.500<br>
+		<a href="">Above Rs.500<br></a>
+<h5 style="background-color: lightgrey">Category</h5>
+  <a href="">Art & photography<br></a>
+  <h5 style="background-color: lightgrey">Language</h5>
+   <a href="">Bengali<br>
+   	<a href="">English<br>
+   		<a href="">Hindi<br>
+   			<a href="">French<br>
+   				<a href="">German</a><br>
+</div>
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+var i = document.getElementById(a );
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+i.src = 'YOUR OPEN IMAGE URL';
+} else 
+return false;
+}
+</script>
+<div id =section >
+	<fieldset class="fade">
+		<table style="width: 150%">
+			<tr>
+				<td> Sort By:
+				<select style="width: 140px;" name="sortBy">
+					<option value="">Select Option</option>
+					<option value="low2high">Price - Low to High</option>
+					<option value="high2low">Price - High to Low</option>
+					<option value="relevance">Relevance</option>
+				</select></td>
+				<td>
+				<input type="text" onkeydown="" value="" placeholder="Search within arts-and-photography">
+				<input type="button" value="search">
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<hr>
+	<dt>
+		<div class=color>
+			<h3 style="color: blue">Graphics Designers Ke Liye Figure Drawings</h3>
+		</div>
+	</dt>
+	<dd>
+		<p>
+			<a style="cursor:pointer;" onclick="return toggleMe('para1')"><u> Detail</u></a></p>
+			<p align="middle"><input type="button" value="  Buy  " onclick="custom_alert(' 	More & More Designs Of Gates Grills Railings & Staircases -- by Vk Joshi has been successfully added to your shopping cart.','Click on ok button to buy this book.');"/>
+		</p>
+	</dd>
+	<div id="para1" style="display: none">
+		Book Details:
+		<br>
+		Price:   Rs.120
+		<br>
+		Discount: Rs. 6 (5%)
+		<br>
+		Dispatched in 1-3 days.
+		<br>
+		Language: English | Binding: Paperback
+	</div>
+	<hr>
+	<dt>
+		<div  class=color>
+			<h3 style="color: blue">Designs og Railing</h3>
+		</div>
+	</dt>
+	<dd>
+		<p>
+			<a style="cursor:pointer;" onclick="return toggleMe('para2')"><u> Detail</u></a></p>
+			<p align="middle"><input type="button" value="  Buy  " onclick="custom_alert(' 	More & More Designs Of Gates Grills Railings & Staircases -- by Vk Joshi has been successfully added to your shopping cart.','Click on ok button to buy this book.')
+			;" />
+		</p>
+	</dd>
+	<div id="para2" style="display: none">
+		Book Details:
+		<br>
+		Price:   Rs.84
+		<br>
+		Discount: Rs. 6 (5%)
+		<br>
+		Dispatched in 1-3 days.
+		<br>
+		Language: English | Binding: Paperback
+	</div>
+	<hr>
+	<dt>
+		<div  class=color>
+			<h3 style="color: blue"> Vaishnodevi : Wilco Picture Library Vol 3</h3>
+		</div>
+	</dt>
+	<dd>
+		<p>
+			<a style="cursor:pointer;" onclick="return toggleMe('para3')"><u> Detail</u></a></p>
+			<p align="middle"><input type="button" id="input_id" value="BUY" onclick="custom_alert('More & More Designs Of Gates Grills Railings & Staircases -- by Vk Joshi has been successfully added to your shopping cart.','Click on ok button to buy this book.');"/>
+		</p>
+	</dd>
+	<div id="para3" style="display: none">
+		Book Details:
+		<br>
+		Price:   Rs.120
+		<br>
+		Discount: Rs. 6 (5%)
+		<br>
+		Dispatched in 1-3 days.
+		<br>
+		Language: English | Binding: Paperback
+	</div>
+	<hr>
+</div>
+<html>
+<head>
+
+<style>
+body {background:gray;}
+#contain{position:absolute;top:0;}
+#alert{background:lightgrey;padding:10px;margin:100px;border-radius:10px;font-size: 20px; border-radius: 2px;}
+#close{ padding:5px; background:blue;color:white;border-radius:5px;border: 2}
+</style>
+
+<script>
+function custom_alert(head, txt) {
+ var d = document;
+var c_obj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
+c_obj.id = "contain";
+c_obj.style.height = d.documentElement.scrollHeight + "px";
+var alertObj = c_obj.appendChild(d.createElement("div"));
+ alertObj.id = "alert";
+ if (d.all && !window.opera)
+ alertObj.style.top = document.documentElement.scrollTop + "px";
+ alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth) / 2 + "px";
+ alertObj.style.visiblity = "visible";
+var h1 = alertObj.appendChild(d.createElement("h5"));
+ h1.appendChild(d.createTextNode(head));
+var msg = alertObj.appendChild(d.createElement("p"));
+ msg.innerHTML = txt;
+var btn = alertObj.appendChild(d.createElement("a"));
+ btn.id = "close";
+ btn.appendChild(d.createTextNode('ok'));
+ btn.focus();
+ btn.onclick = function() {
+ c_obj.parentNode.removeChild(c_obj);
+ };
+ alertObj.style.display = "block";
+ _bbb
+ {
+  
+ }
+}
+</script>
+
+</head>
+
+
+<div id="footer">
+Copyright © anuradha.com
+</div>

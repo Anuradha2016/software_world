@@ -1,0 +1,189 @@
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:600px;
+    width:400px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+</style>
+<div id=header>
+<h1>HOME</h1></div>
+<div id=nav>
+<p><%= link_to "Art & Photography", :action => "art" %></p>
+<p><%= link_to "Biographies & Memories", :action => "bio" %></p>
+<p><%= link_to "Children's Book", :action => "child" %></p>
+<p><%= link_to "Computers and Internet", :action => "computer" %></p>
+<p><%= link_to "Medicine", :action => "medicine" %></p>
+</div>
+<div id=section><body background="../../images/Nature20wallpaper2011.jpg">
+<h3>	<b><p style="color: white"> Please selection a link</p><b></b></h3>
+	
+	<!-- this script got from www.htmlbestcodes.com-Coded by: Krishna Eydat -->
+<html>
+<head  >
+<style type="text/css" >
+ul.fallingtextrotator{
+font-family: 'Orbitron', sans-serif; /* font style. Default uses Google fonts */
+text-shadow: 2px 2px blue, 3px 3px cyan, 4px 4px #C0F5A9, 5px 5px #C0F5A9, 6px 6px #C0F5A9;
+font-size: 40px; /* font size of text */
+color: blue;
+letter-spacing: 5px;
+font-weight: 800;
+text-transform: uppercase;
+position: relative;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+ul.fallingtextrotator > li{
+position: absolute;
+opacity: 0;
+top: 0;
+left: 0;
+-moz-transition: all 0.3s ease-in; /* change 0.3s to reflect desired duration of effect on entire sentence (ie: fade in/out) */
+-webkit-transition: all 0.3s ease-in;
+-o-transition: all 0.3s ease-in;
+-ms-transition: all 0.3s ease-in;
+transition: all 0.3s ease-in;
+}
+
+ul.fallingtextrotator > li:nth-of-type(even){
+color:purple;
+text-shadow: 2px 2px yellow, 3px 3px #FDE0A6, 4px 4px #FDE0A6, 5px 5px #FDE0A6, 6px 6px #FDE0A6;
+}
+
+
+ul.fallingtextrotator > li span[class*="char"]{
+display: inline-block;
+}
+
+ul.fallingtextrotator > li.dropdown span[class*="char"]{
+opacity: 0;
+-moz-transform: translateY(300px) rotateZ(120deg); /* drop down and rotate */
+-webkit-transform: translateY(300px) rotateZ(120deg);
+transform: translateY(300px) rotateZ(120deg);
+-moz-transition: all 0.3s ease-in; /* change 0.3s to reflect desired duration of each word/letter dropping down */
+-webkit-transition: all 0.3s ease-in;
+-o-transition: all 0.3s ease-in;
+-ms-transition: all 0.3s ease-in;
+transition: all 0.3s ease-in;
+}
+</style>
+<head>
+<ul id="headline" class="fallingtextrotator" style="height:2em">
+<li>Select link </li>
+<li>For buying books</li>
+<li>on Discount</li>
+<li>Try Yourself!</li>
+</ul>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://www.htmlbestcodes.com/javascripts/jquery.lettering-0.6.1.min.js"></script>
+<script type="text/javascript">
+(function($){
+	var defaults = {pause:2000, ontextchange:function(msgindex, msg, $eachchar){}, cycles:1}
+	var transitionsupport = typeof $(document.documentElement).css('transition') != 'undefined'
+
+	$.fn.fallingtextrotator = function(options){
+
+		return this.each(function(){
+			var s = $.extend({}, defaults, options)
+			var $t = $(this),
+					wordgroup = [], // array holding collection of either words or chars (depending on setting)
+					curli = 0,
+					cyclescount = {cur:0, max:0}
+			var $lis = $t.find('>li').each(function(i){
+				var $this = $(this)
+					.data('wrapperinfo', {wrapitem:i, transduration:$(this).css('transitionDuration'), currenttransition:0, wordcount:0})
+					.lettering('words').children('span').lettering().end()
+				wordgroup.push( $this.find('span[class*="char"]') )
+				$this.data('wrapperinfo').wordcount = wordgroup[i].length
+			})
+			cyclescount.max = $lis.length * s.cycles // get number of literations before rotator should stop
+
+			$t.on('transitionend webkitTransitionEnd', function(e){
+				var $target = $(e.target),
+						$targetParent = $target.offsetParent()
+				if (/transform/i.test(e.originalEvent.propertyName) && $targetParent.hasClass('dropdown')){
+					$targetParent.data('wrapperinfo').currenttransition += 1
+					if ($targetParent.data('wrapperinfo').currenttransition == $targetParent.data('wrapperinfo').wordcount){
+						$targetParent.data('wrapperinfo').currenttransition = 0
+						wordgroup[curli].css({transitionDelay:'0ms'})
+						$targetParent.css({opacity:0, transitionDuration:'0ms'}).removeClass('dropdown')
+						s.ontextchange( curli, $targetParent.text(), wordgroup[curli] )
+						curli = (curli < wordgroup.length-1)? curli + 1 : 0
+						setTimeout(function(){rotatetext()}, 50)
+					}
+				}
+			})
+
+	
+			function dropword(){
+				if (transitionsupport && !window.opera){
+					for (var i=0; i<wordgroup[curli].length; i++){
+						var delay = Math.round( Math.random() * 1000 ) +'ms'
+						wordgroup[curli].eq(i).css('transitionDelay', delay )
+					}
+					$lis.eq(curli).addClass('dropdown')
+				}
+				else{
+					$lis.eq(curli).css({opacity:0})
+					curli = (curli < wordgroup.length-1)? curli + 1 : 0
+					rotatetext()
+				}
+			}
+	
+			function rotatetext(){
+				var $curli = $lis.eq(curli)
+				$curli.css({opacity:1, transitionDuration:$curli.data('wrapperinfo').transduration})
+				if (s.cycles==0 || cyclescount.cur++ < cyclescount.max-1){
+					setTimeout(function(){
+						dropword()
+					}, s.pause)
+				}
+			}
+	
+			rotatetext()
+		})
+	}
+
+})(jQuery)
+</script>
+
+<script>
+jQuery(function(){ // on DOM load
+	$('#headline').fallingtextrotator({
+		pause: 3000,
+		cycles: 2,
+		ontextchange:function(msgindex, msg, eachchar){
+		}
+	})
+})
+</script>
+<br/>
+</html>
+	 </body>
+</div>
+<div id="footer">
+Copyright © anuradha.com
+</div>
