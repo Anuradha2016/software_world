@@ -1,0 +1,40 @@
+<head>
+<h1 align="center">LOGIN TABLE</h1>
+</head>
+<SCRIPT>
+function doBlink() {
+	var blink = document.all.tags("BLINK")
+	for (var i=0; i<blink.length; i++)
+		blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : "" 
+}
+
+function startBlink() {
+	if (document.all)
+		setInterval("doBlink()",1000)
+}
+window.onload = startBlink;
+
+</SCRIPT>
+
+<table align="right" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey">
+<td >
+<%=link_to 'destroy', :action=>"destroy",method: :destroy %>
+</td>
+</table>
+ <table align="center" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey">
+ 	   <th style="color:blue">Sl No</th>
+    	<th style="color:blue">Title </th>
+    	<th style="color:blue"> Text</th>
+    	<% count = 0%>
+    	<% @login.each do |l|  %>
+       <tr> 
+     	<td><%= count += 1%></td>
+     	<td><%= l.tittle %></td>
+        <td><%= l.text %></td>
+      </tr>
+      <% end %></table>
+  <p><%= link_to 'EDIT' , :action => "new"%></p>
+
+ 

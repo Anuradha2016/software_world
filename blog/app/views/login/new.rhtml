@@ -1,0 +1,60 @@
+<%= form_for :login, @login, :url => {:action=>'create', :id => @login.id} do |f| %>
+ 
+  <h1>New article</h1>
+  <fieldset style="margin-left: 100px;margin-right: 100px;background-color: cyan">
+  <p>
+    <%= f.label :tittle %><br>
+    <%= f.text_field :tittle %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+<p><%= link_to 'Back', :action => "index"%></p>
+<p><%= link_to 'login', :action => "log"%></p>
+<p><%= link_to 'show', :action => "index"%></p>
+<head>
+<script type="text/javascript">
+
+var slideimages = new Array() // create new array to preload images
+slideimages[0] = new Image() // create new instance of image object
+slideimages[0].src = "/../../images/aaa.jpg" // set image src property to image path, preloading image in the process
+slideimages[1] = new Image()
+slideimages[1].src = "/../../images/7567_594602787275647_1016746510_n.jpg"
+slideimages[2] = new Image()
+slideimages[2].src = "thirdcar.gif"
+
+</script>
+</head>
+<body>
+<img src="/../../images/aaa.jpg" id="slide" width="800" height="100" />
+
+<script type="text/javascript">
+
+//variable that will increment through the images
+var step=0
+
+function slideit(){
+ //if browser does not support the image object, exit.
+ if (!document.images)
+  return
+ document.getElementById('slide').src = slideimages[step].src
+ if (step<2)
+  step++
+ else
+  step=0
+ //call function "slideit()" every 2.5 seconds
+ setTimeout("slideit()",2500)
+}
+
+slideit()
+
+</script>
+</body></fieldset>

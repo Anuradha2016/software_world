@@ -1,0 +1,63 @@
+<head>
+<u><h1 align="center">LOGIN TABLE</h1></u>
+</head>
+<fieldset style="margin-left: 100px;margin-right: 100px;background-color: cyan">
+<table align='right'>
+<td align="right" >
+<%=link_to 'destroy', :action=>"destroy",method: :destroy %>
+</td>
+</table>
+ <table align="center" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey" cellpadding="20px">
+ 	   <th style="color:blue">Sl No</th>
+    	<th style="color:blue">Title </th>
+    	<th style="color:blue"> Text</th>
+    	<% count = 0%>
+    	<% @login.each do |l|  %>
+       <tr> 
+     	<td><%= count += 1%></td>
+     	<td><%= l.tittle %></td>
+        <td><%= l.text %></td>
+      </tr>
+      <% end %></table>
+  <p><%= link_to 'EDIT' , :action => "new"%></p>
+</fielset>
+ <html>
+<img src="/../../images/aaa.jpg">
+<img id="myImage" onclick="changeImage()" src="/../../images/aaa.jpg" width="100" height="180">
+</html>
+<script>
+function changeImage() {
+    var image = document.getElementById('myImage');
+    if (image.src.match("b")) {
+        image.src = "/../../images/aaa.jpg";
+    } else {
+        image.src = "/../../images/7567_594602787275647_1016746510_n.jpg";
+    }
+}
+</script>
+<table align="center" bordercolor="blue" border="1"
+ 	style="background-color:lightgrey" cellpadding="20px">
+<tr>
+<th>  name:-</th>
+<th > username:-</th>
+<th> password:-</th><br/> 
+<th>  login:-</th>
+<th> email:-</th>
+<th> city:-</th>
+ </tr>
+<% for l in @login %>
+<td> <%=  l.name %> </td>
+	<td><%= l.username %> </td>
+ <td> <%= l.password %>
+ 	 </td>
+  <td> <%= l.login %> 
+  	</td>
+  <td><%= l.email %>
+  </td>
+  <td><%= l.city%>
+  	
+  <td> <%= link_to 'Delete', {:controller => 'student', :action => 'destroy', :id =>l.id} ,:confirm =>'are you sure?',:method => :post %></td>
+ </br></br>
+</table>
+<% end %>
