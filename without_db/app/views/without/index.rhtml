@@ -1,0 +1,87 @@
+<h1>without db</h1>
+<%= link_to 'new', :action => "new"%>
+<%= link_to 'calculate', :action => "jasc"%>
+<%= link_to 'form', :action => "orderfile"%>
+<%= link_to 'Leaf', :action => "leaf"%>
+<%= link_to 'Leave', :action => "leave"%>
+<%= link_to 'slider', :action => "slider"%>
+<table align='center' border bordercolor="Black" width="250px">
+	<th>Sl.</th>
+	<th>New</th>
+	<th>Item</th>
+</table>
+
+
+<section class="bg">
+  
+  <div class="text">
+    <h1>Politics</h1><span>+</span><h1>Partnerships</h1>
+    <p>The role of voluntary associations in america's political past and present</p>
+  </div>
+  
+  <img class="woman" src="http://2lth8w1uv77536l8d72pqh10.wpengine.netdna-cdn.com/wp-content/uploads/womens-knickers-1924-sport.png" alt="" />
+  
+</section>
+<style>
+
+.bg {
+  
+  border-left: solid 300px #d14d40;
+  border-bottom: solid 200px #59a4dd;
+  height: calc(100vh - 200px);
+  bottom: 0;
+  
+  //font-family: 'Squada One', cursive;
+  font-family: 'Teko', sans-serif;
+}
+
+.woman {
+  position: absolute;
+  height: 50%;
+  width: auto;
+  bottom: 140px;
+    -webkit-filter: drop-shadow(-4px 0px 1px rgba(0,0,0,0.9));
+    //filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=-4, OffY=0, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=-4, OffY=0, Color='#444')";
+}
+
+.text {
+  position: absolute;
+  left: 2em;
+  bottom: 12em;
+  width: 250px;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  
+  h1 {
+    font-size: 3em;
+    line-height: 0;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  
+  span {
+    color: black;
+    font-size: 4.5em;
+    font-weight: 600;
+    top: 8px;
+    position: relative;
+    margin: 0 0.1em;
+  }
+  
+  p{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    font-size: 0.8em;
+    font-weight: 800;
+    line-height: 1.5em;
+    margin-top: 2em;
+    
+  }
+}
+</style>

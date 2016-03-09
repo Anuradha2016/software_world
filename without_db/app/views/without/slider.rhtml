@@ -1,0 +1,53 @@
+<HTML>
+<HEAD><TITLE> Banner</TITLE>
+
+<SCRIPT LANGUAGE= "javascript">
+var sent = "Ruby on Rails has been used to build some of the most popular and active websites that exist today, including Airbnb, Bleacher Report, Hulu, Kickstarter, Pitchfork, and Funny or Die. It is also one of the most in-demand coding languages in the job market."
+var slen = sent.length
+var siz = 38
+var a = -3, b = 0
+var subsent = "x"
+function makeSub(a,b) {
+subsent = sent.substring(a,b) ;
+return subsent;
+}
+function newMake() {
+a = a + 3;
+b = a + siz
+makeSub(a,b);
+return subsent
+}
+function doIt() {
+for (var i = 1; i <= slen ; i++) {
+setTimeout("document.z.textdisplay.value = newMake()", i*500);
+setTimeout("window.status = newMake()", i*500);
+}
+}
+
+</SCRIPT> 
+</HEAD>
+
+<BODY >
+	<h1 align="center" style="color:blue"> Banner</h1>
+<HR><CENTER>
+<FORM NAME="z">
+<INPUT NAME="textdisplay" TYPE="text" SIZE=25 style="color: darkblue"> <P>
+<INPUT NAME="doit" Type="button" value = "Run Banner" onClick = "doIt()" style=" color: darkblue"> 
+</FORM></CENTER>
+
+<HR>
+
+</BODY></HTML>
+
+<SCRIPT> //assigns value to variable 
+var test ="What is all this?" 
+// opens document and uses methods to modify text characteristics
+ document.open() 
+ document.write(test.bold()+"<P>") 
+ document.write(test.fontsize(7)+"<P>") 
+ document.write(test.fontcolor("red")+"<P>") 
+ document.write(test.toUpperCase()+"<P>") //assigns multiple characteristics to text 
+ document.write(test.italics().fontsize(6).fontcolor("green")+"<P>") 
+ document.open() 
+ </SCRIPT>
+ <hr />

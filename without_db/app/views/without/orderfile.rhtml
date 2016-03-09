@@ -1,0 +1,558 @@
+<HTML>
+
+<HEAD>
+<META NAME="GENERATOR" CONTENT="Microsoft FrontPage 4.0">
+<META NAME="ProgId" CONTENT="FrontPage.Editor.Document">
+<TITLE>Order Forms</TITLE>
+
+<SCRIPT>
+
+/******* Form Calculations ********/
+
+function calculate(fld, price){
+	var dir = fld.name.charAt(1);
+	var num = fld.name.charAt(2);
+	var quant = fld.options[fld.selectedIndex].value;
+	var subtotal = eval(quant * price);
+	eval('document.order.t' + dir + num).value = fix(subtotal);
+	var total = 0;
+
+	for (i = 1; i < 8; i++){
+		itemTotal = eval('document.order.t' + dir + i).value
+		if (parseFloat(itemTotal) > 0) total += parseFloat(itemTotal);
+	}
+
+	eval('document.order.total' + dir).value = fix(total);
+}
+
+function fix(total) {
+   	var dollars = Math.floor(total);
+   	var cents = (total * 100) - (dollars * 100);
+		
+   	cents = Math.round(cents);
+
+   	if (cents < 10) cents = "0" + cents;
+   	if (cents == 100) dollars++;
+   	if (dollars == total || dollars == Math.floor(total) + 1) cents = "00";
+   	
+   	total = dollars + "." + cents;
+   	return total;
+}
+
+/******* End of Form Calculations ********/
+
+</SCRIPT>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<DIV ALIGN="center">
+  <CENTER>
+  <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="95%">
+    <TR>
+      <TD>
+        <DIV ALIGN="center">
+          <CENTER>
+          <TABLE BORDER="0" CELLPADDING="5" CELLSPACING="0">
+            <TR>
+              <TD WIDTH="100%">
+                <H3 ALIGN="center"><FONT COLOR="#800040" FACE="Chattsworth">WEST
+                OF THE ROCKIES</FONT></H3>
+                <FORM NAME="order" ACTION METHOD="POST" ONSUBMIT="return ValidateInput(this)">
+                  <DIV ALIGN="center">
+                    <CENTER>
+                    <TABLE BORDER="1" CELLPADDING="5" BGCOLOR="#FAFAC8">
+                      <TR>
+                        <TD BGCOLOR="#000080" ALIGN="center">
+                          <DIV ALIGN="center">
+                            <CENTER>
+                            <P><STRONG><FONT COLOR="#FAFAC8">ITEM NO.</FONT></STRONG>
+                            </DIV>
+                          </CENTER></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">PRODUCT</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">CASE/PACK</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">CASE
+                          PRICE</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">QTY</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">TOTAL</FONT></STRONG></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10116</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">PUTTANESCA SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">69.95</FONT></TD>
+                        <TD><SELECT NAME="pw1" SIZE="1" ONCHANGE="calculate(this, 69.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw1" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10216</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">BELLINI MUSHROOM
+                          SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">74.95</FONT></TD>
+                        <TD><SELECT NAME="pw2" SIZE="1" ONCHANGE="calculate(this, 74.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw2" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10316</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">VENETIAN SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">69.95</FONT></TD>
+                        <TD><SELECT NAME="pw3" SIZE="1" ONCHANGE="calculate(this, 69.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw3" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10416</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">MARINARA SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">69.95</FONT></TD>
+                        <TD><SELECT NAME="pw4" SIZE="1" ONCHANGE="calculate(this, 69.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw4" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10516</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">FRANCESCHINI
+                          FAMILIA SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">69.95</FONT></TD>
+                        <TD><SELECT NAME="pw5" SIZE="1" ONCHANGE="calculate(this, 69.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw5" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">MIXED CASE</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">TWO FLAVORS (6
+                          &amp; 6)</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">74.95</FONT></TD>
+                        <TD><SELECT NAME="pw6" SIZE="1" ONCHANGE="calculate(this, 74.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw6" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">SAMPLE PACK</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">ASSORTED FLAVORS</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">74.95</FONT></TD>
+                        <TD><SELECT NAME="pw7" SIZE="1" ONCHANGE="calculate(this, 74.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="tw7" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD COLSPAN="5" BGCOLOR="#FFFFFF">&nbsp;</TD>
+                        <TD><INPUT TYPE="text" NAME="totalw" SIZE="10" VALUE></TD>
+                      </TR>
+                    </TABLE>
+                    </CENTER>
+                  </DIV>
+                  <DIV ALIGN="center">
+                    <CENTER>
+                    <H3><FONT COLOR="#800040" FACE="Chattsworth">EAST OF THE
+                    ROCKIES</FONT></H3>
+                    </CENTER>
+                  </DIV>
+                  <DIV ALIGN="center">
+                    <CENTER>
+                    <TABLE BORDER="1" CELLPADDING="5" BGCOLOR="#FAFAC8">
+                      <TR>
+                        <TD BGCOLOR="#000080" ALIGN="center">
+                          <DIV ALIGN="center">
+                            <CENTER>
+                            <P><STRONG><FONT COLOR="#FAFAC8">ITEM NO.</FONT></STRONG>
+                            </DIV>
+                          </CENTER></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">PRODUCT</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">CASE/PACK</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">CASE
+                          PRICE</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">QTY</FONT></STRONG></TD>
+                        <TD BGCOLOR="#000080" ALIGN="center"><STRONG><FONT COLOR="#FAFAC8">TOTAL</FONT></STRONG></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10116</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">PUTTANESCA SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">72.95</FONT></TD>
+                        <TD><SELECT NAME="pe1" SIZE="1" ONCHANGE="calculate(this, 72.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te1" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10216</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">BELLINI MUSHROOM
+                          SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">77.85</FONT></TD>
+                        <TD><SELECT NAME="pe2" SIZE="1" ONCHANGE="calculate(this, 77.85)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te2" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10316</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">VENETIAN SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">72.95</FONT></TD>
+                        <TD><SELECT NAME="pe3" SIZE="1" ONCHANGE="calculate(this, 72.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te3" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10416</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">MARINARA SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">72.95</FONT></TD>
+                        <TD><SELECT NAME="pe4" SIZE="1" ONCHANGE="calculate(this, 72.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te4" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">63732 10516</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">FRANCESCHINI
+                          FAMILIA SAUCE</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">72.95</FONT></TD>
+                        <TD><SELECT NAME="pe5" SIZE="1" ONCHANGE="calculate(this, 72.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te5" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">MIXED CASE</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">TWO FLAVORS (6
+                          &amp; 6)</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">77.95</FONT></TD>
+                        <TD><SELECT NAME="pe6" SIZE="1" ONCHANGE="calculate(this, 77.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te6" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD><FONT COLOR="#0000FF">SAMPLE PACK</FONT></TD>
+                        <TD ALIGN="left"><FONT COLOR="#0000FF">ASSORTED FLAVORS</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">12/16 OZ.</FONT></TD>
+                        <TD ALIGN="center"><FONT COLOR="#0000FF">82.95</FONT></TD>
+                        <TD><SELECT NAME="pe7" SIZE="1" ONCHANGE="calculate(this, 82.95)">
+                            <OPTION VALUE="0">0</OPTION>
+                            <OPTION VALUE="1">1</OPTION>
+                            <OPTION VALUE="2">2</OPTION>
+                            <OPTION VALUE="3">3</OPTION>
+                            <OPTION VALUE="4">4</OPTION>
+                            <OPTION VALUE="5">5</OPTION>
+                            <OPTION VALUE="6">6</OPTION>
+                            <OPTION VALUE="7">7</OPTION>
+                            <OPTION VALUE="8">8</OPTION>
+                            <OPTION VALUE="9">9</OPTION>
+                            <OPTION VALUE="10">10</OPTION>
+                            <OPTION VALUE="11">11</OPTION>
+                            <OPTION VALUE="12">12</OPTION>
+                            <OPTION VALUE="13">13</OPTION>
+                            <OPTION VALUE="14">14</OPTION>
+                            <OPTION VALUE="15">15</OPTION>
+                            <OPTION VALUE="16">16</OPTION>
+                            <OPTION VALUE="17">17</OPTION>
+                            <OPTION VALUE="18">18</OPTION>
+                            <OPTION VALUE="19">19</OPTION>
+                            <OPTION VALUE="20">20</OPTION>
+                          </SELECT></TD>
+                        <TD><INPUT TYPE="text" NAME="te7" SIZE="10" VALUE></TD>
+                      </TR>
+                      <TR ALIGN="center">
+                        <TD COLSPAN="5" BGCOLOR="#FFFFFF">&nbsp;</TD>
+                        <TD><INPUT TYPE="text" NAME="totale" SIZE="10" VALUE></TD>
+                      </TR>
+                    </TABLE>
+                    </CENTER>
+                  </DIV>
+                </FORM>
+              </TD>
+            </TR>
+          </TABLE>
+          </CENTER>
+        </DIV>
+      </TD>
+    </TR>
+  </TABLE>
+  </CENTER>
+</DIV>
+
+</BODY>
+
+</HTML>
+<br />
+<br />

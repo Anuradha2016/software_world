@@ -1,0 +1,2 @@
+module WithoutHelper
+end

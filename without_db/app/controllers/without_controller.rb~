@@ -1,0 +1,15 @@
+class WithoutController < ApplicationController
+  def new
+   render :action =>'new'
+    
+  end
+ def edit
+   render :action =>'edit'
+    
+ end
+def paint
+   render :action =>'paint'
+    
+ end
+
+end
