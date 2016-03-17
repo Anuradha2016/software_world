@@ -1,134 +1,83 @@
 <%= link_to 'edit', :action => "edit"%>
 <%= link_to 'slide', :action => "slide"%>
-<main>
-  <!--[1] Article page: intro text-->
-  <article layout="centered" class="-text-center" skin="dark">
-    <h1 class="-text-heading"><a href="#/2">Transitions</a></h1>
-    <p class="-text-larger -text-italic -ph-4">
-      Predefined page & section transitions. <br/> Ready to use out of the box.
-    </p>
-    <a href onclick="FOLIO.next();" class="-button -text-bold">View transitions</a>
-    <a href="#" onclick="FOLIO.goto(16);" class="-button -button-text -color-grey -mt-3">See how it's done</a>
-  </article>
-
-  <!-- [2 to 15] Photo pages with applied transition  -->
-  <img src="photo-01.jpg" transition="left"       alt="next: right" />
-  <img src="photo-02.jpg" transition="right"      alt="next: up" />
-  <img src="photo-01.jpg" transition="up"         alt="next: down" />
-  <img src="photo-02.jpg" transition="down"       alt="next: scale-left" />
-  <img src="photo-01.jpg" transition="scale-left" alt="next: scale-up" />
-  <img src="photo-02.jpg" transition="scale-up"   alt="next: scale-down" />
-  <img src="photo-01.jpg" transition="scale-down" alt="next: fold-left" />
-  <img src="photo-02.jpg" transition="fold-left"  alt="next: fold-right" />
-  <img src="photo-01.jpg" transition="fold-right" alt="next: fold-up" />
-  <img src="photo-02.jpg" transition="fold-up"    alt="next: fold-down" />
-  <img src="photo-01.jpg" transition="fold-down"  alt="next: fade" />
-  <img src="photo-02.jpg" transition="fade"       alt="next: scale" />
-  <img src="photo-01.jpg" transition="scale"      alt="next: none" />
-  <img src="photo-02.jpg" transition="none"       alt="next: Transitions guidlines page" />
-  
-  <!-- [16] Article page: How it's done-->
-  <article transition="fold-left" hash="how-its-done">
-    <h2 class="-mb-3">How it's done?</h2>
-    <p class="-text-medium">Transition guidelines:</p>
-    <ul class="-text-medium">
-      <li>Use transition attribute on page element to define incoming transition type.</li>
-      <li>Types of transitions: <br/>
-        <span class="-text-smaller -color-red">
-          'left' (default), 'right', 'up', 'down', <br/>
-          'scale-left', 'scale-right', 'scale-up', 'scale-down',<br/>
-          'fold-left', 'fold-right', 'fold-up', 'fold-down',<br/>
-          'fade', 'scale', 'none'
-        </span>
-      </li>
-      <li>
-        Example:
-        <pre><code class="-text-smaller">&lt;img src="photo.jpg&quot; <strong>transition=&quot;fold-down&quot;</strong>/&gt;</code></pre>
-      </li>
-    </ul>
-    <p class="-text-medium">Also, use <a href="http://docs.foliodot.com/options">configuration object</a> to:</p>
-    <ul>
-      <li>Define default project page transition type</li>
-      <li>Define default thumbnails page transition type </li>
-      <li>Define transition type between project and thumbnails section</li>
-    </ul>
-  </article> 
-  
-    <article layout="centered" transition="fold-left">
-    <a href="#" onclick="FOLIO.toggle('sidebar');" class="-text-bold">
-      About this project
-    </a>
-    <p class="-color-grey -mt-4">More pens:</p>
-    <a href="http://codepen.io/foliodot/full/dGBjBR/" target="_blank">Narrative demo</a>
-    <a href="http://codepen.io/foliodot/full/MKMZaY/" target="_blank">Photo gallery</a>
-  </article>
-  
-</main>
-
-<!-- 
-  Created with Foliodot starter template: https://foliodot.com 
-  Documentaion: http://docs.foliodot.com/
-  Images: https://unsplash.com/ 
--->
-
-<aside>
-  <header>
-    <h5>folio.demo</h5></header>
-  <p>
-    <a href="https://foliodot.com">Foliodot</a> is simplest starter template for photogrpahy portfolio websites and narrative photo projects:
-  </p>
-  <ul class="-ml-3">
-    <li>Minimalistic markup</li>
-    <li>Aesthetic simplicity</li>
-    <li>Photobook layouts</li>
-    <li>Versatile options</li>
-  </ul>
-  <p>You may actually enjoy making your website.</p>
-  <p>See <a href="https://foliodot.com">foliodot.com</a></p>
-  <p>—</p>
-  <p>
-    <a href="http://codepen.io/foliodot/" target="_blank">
-      More pens
-    </a>
-  </p>
-</aside>
-
-
-<style>
-	/*
-Used event css helper class ".on-photo-fit-cover" 
-to style elements when image fit is in cover mode. 
-Rule excluded for last two pages: 16 & 17
-Documentation: http://docs.foliodot.com/selectors#event
-*/
-.on-photo-fit-cover:not(.on-page-16):not(.on-page-17) .project {
-  .page-caption,
-  .ui-button-next,
-  .ui-button-prev,
-  .ui-pagination{
-    color: #fff;
-  }  
-}
-
-
-</style>
-<script>
-	/* 
- - Documentaion: http://docs.foliodot.com/options
- - This demo uses foliodot javascript which is subject 
-   to the terms at https://foliodot.com/legal/eula
-*/
-
-FOLIO.init({
-  project: {
-    views : 'normal cover',
-    transition: 'fade' //transition attribute on page element have priority
-  },
-  thumbnails: {
-    transition: 'up'
-  },
-  content: {
-    transition: 'fold-up'
-  }
-});
-</script>
+<html>
+   <head>
+   
+      <style>
+      
+         .animated { 
+            background-image: url(/images/game-logo-e1372336290561.jpg); 
+            background-repeat: no-repeat;
+            background-position: center top; 
+            padding-top:405px;
+            margin-bottom:30px;
+            -webkit-animation-duration: 2s; 
+            animation-duration: 10s; 
+            -webkit-animation-fill-mode: both; 
+            animation-fill-mode: both; 
+         }
+         
+         @-webkit-keyframes swing { 
+            20%, 40%, 60%, 80%, 100% { -webkit-transform-origin: top center; } 
+            20% { -webkit-transform: rotate(15deg); } 
+            40% { -webkit-transform: rotate(-10deg); } 
+            60% { -webkit-transform: rotate(5deg); } 
+            80% { -webkit-transform: rotate(-5deg); } 
+            100% { -webkit-transform: rotate(0deg); } 
+         }
+         
+         @keyframes swing { 
+            20% { transform: rotate(15deg); } 
+            40% { transform: rotate(-10deg); } 
+            60% { transform: rotate(5deg); } 
+            80% { transform: rotate(-5deg); } 
+            100% { transform: rotate(0deg); } 
+         }
+         
+         .swing { 
+            -webkit-transform-origin: top center; 
+            transform-origin: top center; 
+            -webkit-animation-name: swing; 
+            animation-name: swing; 
+         }
+           @-webkit-keyframes wobble { 
+            0% { -webkit-transform: translateX(0%); } 
+            15% { -webkit-transform: translateX(-25%) rotate(-5deg); } 
+            30% { -webkit-transform: translateX(20%) rotate(3deg); } 
+            45% { -webkit-transform: translateX(-15%) rotate(-3deg); } 
+            60% { -webkit-transform: translateX(10%) rotate(2deg); } 
+            75% { -webkit-transform: translateX(-5%) rotate(-1deg); }
+            100% { -webkit-transform: translateX(0%); } 
+         }
+         
+         @keyframes wobble { 
+            0% { transform: translateX(0%); } 
+            15% { transform: translateX(-25%) rotate(-5deg); } 
+            30% { transform: translateX(20%) rotate(3deg); } 
+            45% { transform: translateX(-15%) rotate(-3deg); } 
+            60% { transform: translateX(10%) rotate(2deg); } 
+            75% { transform: translateX(-5%) rotate(-1deg); } 
+            100% { transform: translateX(0%); } 
+         }
+         
+         .wobble { 
+            -webkit-animation-name: wobble; 
+            animation-name: wobble; 
+         }
+      </style>
+      
+   </head>
+   <body>
+   
+      <div id="animated-example" class="animated swing"></div>
+      <div id="animated-example" class="animated wobble"></div>
+      <button onclick="myFunction()">Reload page</button>
+      
+      <script>
+         function myFunction() {
+            location.reload();
+         }
+      </script>
+      
+   </body>
+</html>

@@ -3,11 +3,7 @@
 <%= link_to 'calculate', :action => "jasc"%>
 <%= link_to 'form', :action => "orderfile"%>
 <%= link_to 'Leaf', :action => "leaf"%>
-<%= link_to 'Leave', :action => "leave"%><br/>
-<%= link_to 'GAME', :action => "game"%>
-<%= link_to 'spark', :action => "spark"%>
-<%= link_to 'bunny', :action => "bunny"%>
-
+<%= link_to 'Leave', :action => "leave"%>
 <%= link_to 'RAIN', :action => "rain"%>
 <%= link_to 'slider', :action => "slider"%>
 <table align='center' border bordercolor="Black" width="250px">

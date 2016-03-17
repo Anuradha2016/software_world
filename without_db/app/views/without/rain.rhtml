@@ -1,0 +1,100 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>rainyday.js demo #1</title>
+        <style media="screen">
+            body {
+                overflow: hidden;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script src="rainyday.js"></script>
+        <script>
+            function run() {
+                var image = document.getElementById('background');
+                image.onload = function() {
+                    var engine = new RainyDay({
+                        image: this
+                    });
+                    engine.rain([ [1, 2, 8000] ]);
+                    engine.rain([ [3, 3, 0.88], [5, 5, 0.9], [6, 2, 1] ], 100);
+                };
+                image.crossOrigin = 'anonymous';
+                image.src = 'http://i.imgur.com/N7ETzFO.jpg';
+            }
+        </script>
+    </head>
+    <body onload="run();">
+        <img id="background" alt="background" src="" />
+    </body>
+</html> -->
+
+RAIN DROP
+<script>
+	
+	<!DOCTYPE html><html class=''>
+<head><script src='//assets.codepen.io/assets/editor/live/console_runner-ba402f0a8d1d2ce5a72889b81a71a979.js'></script><script src='//assets.codepen.io/assets/editor/live/events_runner-d004902542b6f6191b16aa6145ed1d9c.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="canonical" href="https://codepen.io/alemesre/pen/hAxGg" />
+
+<script src='//codepen.io/assets/libs/prefixfree.min.js'></script>
+<style class="cp-pen-styles">html{height:100%;}
+body {
+background:#0D343A;
+background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(#000000)  );
+background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(0,0,0,1) 100%);
+
+overflow:hidden;}
+
+
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
+  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
+	width:1px;
+	height:89px;
+	position: absolute;
+	bottom:200px;
+	-webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+  
+}
+
+/* animate the drops*/
+@-webkit-keyframes fall {
+	to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+	to {margin-top:900px;}
+}
+
+</style></head><body>
+<section class="rain"></section>
+<script src='//assets.codepen.io/assets/common/stopExecutionOnTimeout.js?t=1'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script>var nbDrop = 858;
+function randRange(minNum, maxNum) {
+    return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+}
+function createRain() {
+    for (i = 1; i < nbDrop; i++) {
+        if (window.CP.shouldStopExecution(1)) {
+            break;
+        }
+        var dropLeft = randRange(0, 1600);
+        var dropTop = randRange(-1000, 1400);
+        $('.rain').append('<div class="drop" id="drop' + i + '"></div>');
+        $('#drop' + i).css('left', dropLeft);
+        $('#drop' + i).css('top', dropTop);
+    }
+    window.CP.exitedLoop(1);
+}
+createRain();
+//# sourceURL=pen.js
+</script>
+</body></html>
+</script>
+
